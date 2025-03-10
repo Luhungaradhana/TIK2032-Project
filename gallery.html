@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Website Sederhana</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f4f4f4; }
+        nav { background: #333; padding: 10px; }
+        nav a { color: white; text-decoration: none; margin: 15px; font-size: 18px; }
+        .container { padding: 20px; }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <h1>Gallery</h1>
+        <div class="gallery">
+            <img src="labubu.jpg" alt="Labubu">
+            <img src="pantai.jpg" alt="Pantai">
+            <img src="riku.jpg" alt="Riku">
+            <img src="WhatsApp Image 2024-12-12 at 21.22.19_89290de4.jpg" alt="Christmas">
+        </div>
+    </div>
+</body>
+</html>
