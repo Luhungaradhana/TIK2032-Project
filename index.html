@@ -5,47 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Website Sederhana</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+        /* Reset Dasar */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
+
+        /* Background Gradient dengan Efek Futuristik */
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #537895);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Navbar dengan Efek Glassmorphism */
         .navbar {
-            background-color: #007bff;
-            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
         }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
+
         .navbar a:hover {
-            text-decoration: underline;
+            color: #FFD700;
+            transform: translateY(-3px);
+            text-shadow: 0 0 8px #FFD700;
         }
+
+        /* Container dengan Efek Glass */
         .container {
-            margin-top: 50px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 600px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out;
         }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         h1 {
-            color: #007bff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #FFD700, #FFF);
+            background-clip: text;
+            color: transparent;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 8px #FFD700; }
+            to { text-shadow: 0 0 20px #FFF; }
+        }
+
+        p {
+            color: #f0f0f0;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Tombol Interaktif */
+        .btn-sapa {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #2a2a2a;
+        }
+
+        .btn-sapa:hover {
+            background-color: #fff;
+            box-shadow: 0 0 10px #FFD700, 0 0 20px #fff;
+        }
+
+        #hasilSapa {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: #fffacd;
+        }
+
+        /* Responsive Desain */
+        @media (max-width: 600px) {
+            .navbar a { margin: 0 10px; font-size: 16px; }
+            h1 { font-size: 2.5rem; }
+            p, #hasilSapa { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="navbar" align="center">
+    <!-- Navbar -->
+    <div class="navbar">
         <a href="index.html">Home</a>
         <a href="gallery.html">Gallery</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
     </div>
 
-    <div class="container" align="center">
+    <!-- Container -->
+    <div class="container">
         <h1>Selamat Datang di Website Saya!</h1>
-        <p>Salam Kenal, Nama Saya Muhammad Luhung Aradhana</p>
+        <p>Salam Kenal, Nama Saya <strong>Muhammad Luhung Aradhana</strong></p>
+
+        <!-- Tombol Interaktif -->
+        <button id="sapaButton" class="btn-sapa">Silahkan klik</button>
+        <p id="hasilSapa"></p>
     </div>
 
+    <!-- File JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

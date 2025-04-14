@@ -5,49 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Website Sederhana</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+        /* Reset Dasar */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
+
+        /* Background Gradient */
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298, #537895);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Navbar dengan Efek Glassmorphism */
         .navbar {
-            background-color: #007bff;
-            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 20px;
+            border-radius: 50px;
+            margin-top: 30px;
+            display: inline-block;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
+
         .navbar a:hover {
-            text-decoration: underline;
+            color: #FFD700;
+            transform: translateY(-3px);
+            text-shadow: 0 0 8px #FFD700;
         }
+
+        /* Container Card */
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1 {
-            color: #007bff;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #FFD700, #FFF);
+            background-clip: text;
+            color: transparent;
+            animation: glow 1.5s infinite alternate;
         }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 8px #FFD700;
+            }
+            to {
+                text-shadow: 0 0 20px #FFF;
+            }
+        }
+
         h2 {
-            color: #0056b3;
+            color: #FFD700;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
         }
+
+        h2:hover {
+            transform: scale(1.05);
+        }
+
         p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
             line-height: 1.8;
+        }
+
+        /* Efek Hover untuk Card */
+        .container div {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <div class="navbar" align="center">
+    <div class="navbar">
         <a href="index.html">Home</a>
         <a href="gallery.html">Gallery</a>
         <a href="blog.html">Blog</a>
