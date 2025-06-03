@@ -16,8 +16,8 @@
 
         /* Background Gradient */
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298, #537895);
-            color: #fff;
+            background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
+            color: #333;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -27,83 +27,112 @@
 
         /* Navbar Style */
         .navbar {
-            background-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 50px;
-            margin-bottom: 30px;
+            padding: 15px 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .navbar a {
-            color: #fff;
+            color: #4a6fa5;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 20px;
+            font-size: 16px;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4a6fa5;
+            transition: width 0.3s ease;
         }
 
         .navbar a:hover {
-            color: #FFD700;
-            text-shadow: 0 0 8px #FFD700;
+            color: #2c3e50;
+        }
+
+        .navbar a:hover:after {
+            width: 100%;
         }
 
         /* Konten Utama */
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, #FFD700, #FFF);
-            background-clip: text;
-            color: transparent;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 8px #FFD700;
-            }
-            to {
-                text-shadow: 0 0 20px #FFF;
-            }
+            color: #2c3e50;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin: 10px 0;
+            color: #5d6d7e;
         }
 
         a {
-            color: #FFD700;
+            color: #4a6fa5;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s, transform 0.3s;
+            display: inline-block;
         }
 
         a:hover {
-            color: #FFF;
-            transform: scale(1.1);
+            color: #2c3e50;
+            transform: translateY(-2px);
         }
 
         /* Card Efek */
         .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
-            animation: fadeInUp 1s ease-out;
+            animation: scaleIn 0.6s ease-out;
+            min-width: 320px;
+            max-width: 500px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive Desain */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 12px 15px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .navbar a { 
+                margin: 0 10px; 
+                font-size: 14px; 
+            }
+            h1 { 
+                font-size: 2.2rem; 
+            }
+            .card {
+                padding: 30px 20px;
+                min-width: 280px;
+            }
+            p { 
+                font-size: 1rem; 
             }
         }
     </style>
@@ -113,7 +142,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <a href="index.html">Home</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="gallery.php">Gallery</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
     </div>

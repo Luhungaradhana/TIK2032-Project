@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Website Sederhana</title>
     <style>
-        /* Reset Dasar */
+        /* --- CSS ASLI ANDA --- */
         * {
             margin: 0;
             padding: 0;
@@ -14,112 +14,166 @@
             scroll-behavior: smooth;
         }
 
-        /* Background Gradient */
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298, #537895);
-            color: #fff;
+            background: linear-gradient(120deg, #f5f7fa, #c3cfe2);
+            color: #333;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Navbar dengan Efek Glassmorphism */
         .navbar {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            padding: 20px;
-            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
             margin-top: 30px;
             display: inline-block;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .navbar a {
-            color: white;
+            color: #4a6fa5;
             text-decoration: none;
             margin: 0 20px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4a6fa5;
+            transition: width 0.3s ease;
         }
 
         .navbar a:hover {
-            color: #FFD700;
-            transform: translateY(-3px);
-            text-shadow: 0 0 8px #FFD700;
+            color: #2c3e50;
         }
 
-        /* Container Card */
+        .navbar a:hover:after {
+            width: 100%;
+        }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: scaleIn 0.6s ease-out;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 30px;
-            background: linear-gradient(90deg, #FFD700, #FFF);
-            background-clip: text;
-            color: transparent;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 8px #FFD700;
-            }
-            to {
-                text-shadow: 0 0 20px #FFF;
-            }
+            color: #2c3e50;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         h2 {
-            color: #FFD700;
+            color: #4a6fa5;
             margin-bottom: 10px;
             transition: transform 0.3s ease;
+            font-weight: 600;
         }
 
         h2:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #f0f0f0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #5d6d7e;
             line-height: 1.8;
         }
 
-        /* Efek Hover untuk Card */
-        .container div {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
+        .container .card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .container div:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .container .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4a6fa5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #2c3e50;
+        }
+
+        .action-buttons {
+            margin-top: 10px;
+        }
+
+        .action-buttons button {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+            .navbar a { 
+                margin: 0 10px; 
+                font-size: 14px; 
+            }
+            h1 { 
+                font-size: 2.2rem; 
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            p { 
+                font-size: 1rem; 
+            }
         }
     </style>
 </head>
@@ -128,7 +182,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <a href="index.html">Home</a>
-        <a href="gallery.html">Gallery</a>
+        <a href="gallery.php">Gallery</a>
         <a href="blog.html">Blog</a>
         <a href="contact.html">Contact</a>
     </div>
@@ -137,22 +191,92 @@
     <div class="container">
         <h1>Blog</h1>
 
-        <!-- Postingan Blog -->
-        <div>
-            <h2>Teknologi AI dan Masa Depan</h2>
-            <p>Kecerdasan buatan berkembang semakin pesat dan mulai memengaruhi berbagai aspek kehidupan. Dari otomatisasi pekerjaan hingga analisis data yang lebih cepat dan akurat, AI membawa perubahan yang tak bisa dihindari. Masa depan teknologi pun akan semakin bergantung pada kecerdasan buatan dalam berbagai bidang.</p>
-        </div>
+        <!-- Form Artikel -->
+        <form id="formArtikel">
+            <input type="hidden" id="id" />
+            <div class="form-group">
+                <label>Judul</label>
+                <input type="text" id="judul" placeholder="Judul artikel" required />
+            </div>
+            <div class="form-group">
+                <label>Konten</label>
+                <textarea id="konten" rows="4" placeholder="Isi artikel" required></textarea>
+            </div>
+            <button type="submit">Simpan</button>
+        </form>
 
-        <div>
-            <h2>Perkembangan Seni Digital</h2>
-            <p>Dunia seni terus beradaptasi dengan kemajuan teknologi. Dengan hadirnya tablet grafis dan kecerdasan buatan, seniman kini memiliki lebih banyak alat untuk mengekspresikan kreativitas mereka. Teknologi ini bukan hanya mempermudah proses berkarya, tetapi juga membuka peluang baru dalam industri kreatif.</p>
-        </div>
+        <hr style="margin: 40px 0; border: 0; border-top: 1px solid #ddd;">
 
-        <div>
-            <h2>Olahraga dan Kesehatan</h2>
-            <p>Menjaga kesehatan bukan sekadar tren, tetapi kebutuhan. Aktivitas fisik yang rutin, pola makan seimbang, dan pemanfaatan teknologi kesehatan dapat membantu meningkatkan kualitas hidup. Dengan gaya hidup sehat, tubuh tetap bugar dan lebih siap menghadapi tantangan sehari-hari.</p>
-        </div>
+        <!-- Daftar Artikel -->
+        <div id="daftarArtikel"></div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("formArtikel");
+            const idInput = document.getElementById("id");
+            const judulInput = document.getElementById("judul");
+            const kontenInput = document.getElementById("konten");
+            const daftarArtikel = document.getElementById("daftarArtikel");
+
+            async function fetchArtikel() {
+                const res = await fetch("artikel.php");
+                const data = await res.json();
+                daftarArtikel.innerHTML = "";
+                data.forEach(({id, judul, konten}) => {
+                    const div = document.createElement("div");
+                    div.className = "card";
+                    div.innerHTML = `
+                        <h2>${judul}</h2>
+                        <p>${konten}</p>
+                        <div class="action-buttons">
+                            <button onclick="editArtikel(${id}, \`${judul.replace(/`/g, '\\`')}\`, \`${konten.replace(/`/g, '\\`')}\`)">Edit</button>
+                            <button onclick="hapusArtikel(${id})">Hapus</button>
+                        </div>
+                    `;
+                    daftarArtikel.appendChild(div);
+                });
+            }
+
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                const id = idInput.value;
+                const judul = judulInput.value;
+                const konten = kontenInput.value;
+
+                const method = id ? "PUT" : "POST";
+                const body = JSON.stringify({ id, judul, konten });
+
+                await fetch("artikel.php", {
+                    method,
+                    headers: { "Content-Type": "application/json" },
+                    body
+                });
+
+                form.reset();
+                fetchArtikel();
+            };
+
+            window.editArtikel = (id, judul, konten) => {
+                idInput.value = id;
+                judulInput.value = judul;
+                kontenInput.value = konten;
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            };
+
+            window.hapusArtikel = async (id) => {
+                if (confirm("Yakin ingin menghapus artikel ini?")) {
+                    await fetch("artikel.php", {
+                        method: "DELETE",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id })
+                    });
+                    fetchArtikel();
+                }
+            };
+
+            fetchArtikel();
+        });
+    </script>
 </body>
 </html>
